@@ -1,0 +1,56 @@
+The program must accept a string S and an integer X where the length of S is divisible X as the input.
+The program must print every X characters in the string S on each line as the output.
+Boundary Condition(s):
+1 <= Length of S, X <= 100
+Input Format:
+The first line contains the string S.
+The second line contains the integer X.
+Output Format:
+The first length of S / X lines contains X characters on each line.
+Example Input/Output 1:
+Input:
+orange
+3
+Output:
+ora
+nge
+Example Input/Output 2:
+Input:
+compartmentalization
+4
+Output:
+comp
+artm
+enta
+liza
+tion
+
+
+
+
+Code:
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int x;
+    char ch[100];
+    scanf("%s\n%d",ch,&x);
+    int n=strlen(ch);
+    if(n%x==0)
+    {
+        for(int i=0;i<n;)
+        {
+            int a=x;
+            while(a!=0)
+            {
+                printf("%c",ch[i]);
+                i++;
+                a--;
+            }
+            printf("\n");
+        }
+    }
+}
