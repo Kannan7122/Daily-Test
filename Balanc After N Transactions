@@ -1,0 +1,65 @@
+The program must accept N transactions of a bank account as the input. Each transaction has a
+character (+ for credit or - for debit) followed by the amount. The program must print the available
+balance at the end of all transactions as the input. Consider the initial available balance as Rs. 1000.
+Boundary Condition(s):
+1 <= N <= 1000
+1 <= Amount <= 10^5
+Input Format:
+The first line contains N.
+The next N lines contain a character and an integer each separated by a space.
+Output Format:
+The first line contains the available balance at the end of all transactions.
+Example Input/Output 1:
+Input:
+5
++ 1000
+- 500
++ 1500
++ 300
+- 200
+Output:
+3100
+Explanation:
+Initially the available balance is 1000 so after all the transactions the available balance is 1000 + 1000 -
+500 + 1500 + 300 - 200 = 3100
+Example Input/Output 2:
+Input:
+6
++ 200
+- 1200
++ 2500
++ 1600
+- 900
+- 450
+Output:
+2750
+
+
+
+
+Code : 
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int res=1000;
+    for(int i=0;i<n;i++)
+    {
+        int m;
+        char ch[10];
+        scanf("%s %d",&ch,&m);
+        if(ch[0]=='+')
+        {
+            res+=m;
+        }
+        else
+        {
+            res-=m;
+        }
+    }
+    printf("%d",res);
+}
