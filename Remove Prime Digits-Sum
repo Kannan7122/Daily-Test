@@ -1,0 +1,92 @@
+The program must accept two integers X and Y as the input. The program must remove the prime
+digits (2, 3, 5 and 7) from X and Y. Then the program must print the sum of X and Y as the output. If all
+the digits in an integer are removed then consider it as 0.
+
+Boundary Condition(s):
+1 <= X, Y <= 10^9
+
+Input Format:
+The first line contains the values of X and Y separated by a space.
+
+Output Format:
+The first line contains the sum of the modified values of X and Y.
+
+Example Input/Output 1:
+Input:
+2159 4934
+
+Output:
+513
+
+Explanation:
+After removing the prime digits in 2159, the integer X becomes 19.
+After removing the prime digits in 4934, the integer Y becomes 494.
+So the sum of 19 and 494 is 513.
+
+Example Input/Output 2:
+Input:
+2303 5010
+Output:
+10
+
+
+
+
+
+
+Code : 
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s1=sc.next();
+		String s2=sc.next();
+		int n1=s1.length();
+		int n2=s2.length();
+		String r1="";
+		String r2="";
+		int c1=0,c2=0;
+		for(int i=0;i<n1;i++)
+		{
+		    char c=s1.charAt(i);
+		    if(c!='2' && c!='3' && c!='5' && c!='7')
+		    {
+		        r1+=c;
+            c1++;
+		    }
+		}
+		for(int i=0;i<n2;i++)
+		{
+		    char d=s2.charAt(i);
+		    if(d!='2' &&  d!='3' && d!='5' && d!='7')
+		    {
+		        r2+=d;
+            c2++;
+		    }
+		}
+        long a=0,b=0;
+        if(c1!=0)
+        {
+            a=Long.parseLong(r1);
+        }
+        else
+        {
+            a=0;
+        }
+        
+        if(c2!=0)
+        {
+            b=Long.parseLong(r2);
+        }
+        else
+        {
+            b=0;
+        }
+		
+		long res=a+b;
+		System.out.println(res);
+
+	}
+}
