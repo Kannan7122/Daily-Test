@@ -1,0 +1,66 @@
+The program must accept marks of N students as the input. There is a team event held in college and
+to participate in the event they need to score at least 50. Each team must have exactly 3 students. The
+program must print the maximum number of teams that can participate in the event as the output.
+
+Boundary Condition(s):
+1 <= N <= 1000
+0 <= Marks <= 100
+
+Input Format:
+The first line contains N.
+The second line contains N integers separated by space.
+
+Output Format:
+The first line contains the maximum number of teams that can participate in the event.
+
+Example Input/Output 1:
+Input:
+9
+50 68 45 78 21 68 98 100 87
+
+Output:
+2
+
+Explanation:
+There are 7 eligible students but only 6 students can form teams with 3 students each. So the output is
+2.
+
+Example Input/Output 2:
+Input:
+11
+39 47 97 96 44 59 23 32 61 78 24
+
+Output:
+1
+
+
+
+
+
+Code : 
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		int cnt=0;
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.nextInt();
+		    if(arr[i]>=50)
+		    {
+		        cnt++;
+		    }
+		}
+		int c=0;
+		while(cnt>=3)
+		{
+		    cnt=cnt-3;
+		    c++;
+		}
+		System.out.println(c);
+	}
+}
