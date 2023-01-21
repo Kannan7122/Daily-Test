@@ -1,0 +1,76 @@
+The program must accept an integer N as the input. The program must replace the odd digits by even
+digits and replace the even digits by odd digits in the given order. Then the program must print the
+modified N as the output.
+Note: The number of odd digits will be equal to the number of even digits.
+Boundary Condition(s):
+1 <= N <= 10^9
+Input Format:
+The first line contains N.
+Output Format:
+The first line contains the modified N.
+Example Input/Output 1:
+Input:
+534632
+Output:
+465323
+Explanation:
+The odd digits 5 3 and 3 are replaced by the even digits 4 6 and 2. Also, the even digits 4 6 and 2
+replaced by the odd digits 5 3 and 3. So 465323 is printed as the output.
+Example Input/Output 2:
+Input:
+2327
+Output:
+3272
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=Character.getNumericValue(str.charAt(i));
+		}
+		int[] a1=new int[n];
+		int[] a2=new int[n];
+		int g=0,h=0;
+		for(int i=0;i<n;i++)
+		{
+		    int a=arr[i];
+		    //System.out.println(a);
+		    if(a%2==0)
+		    {
+		        a1[g]=arr[i];
+		        g++;
+		    }
+		    else
+		    {
+		        a2[h]=arr[i];
+		        h++;
+		    }
+		}
+		int k=0,l=0;
+		for(int i=0;i<n;i++)
+		{
+		    if(arr[i]%2==0)
+		    {
+		        System.out.print(a2[k]);
+		        k++;
+		    }
+		    else
+		    {
+		        System.out.print(a1[l]);
+		        l++;
+		    }
+		}
+
+	}
+}
