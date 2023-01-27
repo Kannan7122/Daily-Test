@@ -1,0 +1,50 @@
+The program must accept N integers as the input. The program must print the odd integers which are
+present at the odd positions in the given N integers as the output.
+Boundary Condition(s):
+1 <= N <= 10^3
+Input Format:
+The first line contains the integer N.
+Output Format:
+The first line contains the list of odd integer(s) separated by a space.
+Example Input/Output 1:
+Input:
+6
+10 13 15 12 31 33
+Output:
+15 31
+Explanation:
+The odd Integers are 13, 15, 31 and 33. But only 15 and 31 are at odd positions which are printed as
+the output.
+Example Input/Output 2:
+Input:
+3
+21 20 27
+Output:
+21 27
+
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.nextInt();
+		    if(arr[i]%2!=0 && i%2==0)
+		    {
+		        System.out.print(arr[i]+" ");
+		    }
+		}
+
+	}
+}
