@@ -1,0 +1,75 @@
+The program must accept a string S and replace each vowel with the previous occurring vowel in S.
+Similarly the program must replace each consonant with the previous occurring consonant. The first
+occurring vowel or consonant remain unchanged. 
+Boundary Condition(s):
+1 <= Length of S <= 1000
+Input Format:
+The first line contains the value of S.
+Output Format:
+The first line contains the modified value of S.
+Example Input/Output 1:
+Input:
+apple
+Output:
+apppa
+Explanation:
+a is a vowel and is the first. So it remains unchanged.
+p is a consonant and is the second. So it remains unchanged.
+p is then repeated and is a consonant. The previous occurring consonant is p.
+l is a consonant and previous occurring vowel is p.
+e is a vowel and previous occurring vowel is a.
+Example Input/Output 2:
+Input:
+manager
+Output:
+mamanag
+
+
+
+
+
+Code  :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		char v='0';
+		char c='0';
+		for(int i=0;i<n;i++)
+		{
+		    char ch=str.charAt(i);
+		    if(ch=='a' || ch=='A' || ch=='e' || ch=='E' ||ch=='i' || ch=='I' || ch=='o' ||ch=='O' || ch=='u' || ch=='U')
+		    {
+		        if(v=='0')
+		        {
+		            System.out.print(ch);
+		            v=ch;
+		        }
+		        else
+		        {
+		            
+		            System.out.print(v);
+                v=ch;
+		        }
+		    }
+		    else
+		    {
+		        if(c=='0')
+		        {
+		            System.out.print(ch);
+		            c=ch;
+		        }
+		        else
+		        {
+		            System.out.print(c);
+                c=ch;
+		        }
+		    }
+		}
+
+	}
+}
