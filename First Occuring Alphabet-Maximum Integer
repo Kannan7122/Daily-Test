@@ -1,0 +1,96 @@
+The program must accept N pairs as the input. Each pair contains an alphabet followed by an integer.
+The program must print the pair which has the first occurring alphabet in alphabetical order among
+the given alphabets as the output. If more than one pair has the same alphabet then consider the pair
+which has the maximum integer among them. If more than one maximum pair occurs then print the
+first occurring pair.
+Boundary Condition(s):
+1 <= N <= 100
+a <= Alphabet in each pair <= z
+1 <= Integer value in each pair <= 999
+Input Format:
+The first line contains the value of N.
+The second line contains N pairs separated by space(s).
+Output Format:
+The first line contains the pair based on the given conditions.
+Example Input/Output 1:
+Input:
+7
+g45 j42 n78 c43 v94 a50 d300
+Output:
+a50
+Explanation:
+The first occurring alphabet is a in alphabetical among g, j, n, c, v, a and d. So a50 is printed as the
+output.
+Example Input/Output 2:
+Input:
+5
+k34 k56 k23 l89 k7
+Output:
+k56
+
+
+
+
+Code : 
+
+import java.util.*;
+public class MyClass {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		String[] arr=new String[n];
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.next();
+		}
+		Arrays.sort(arr);
+		String s1=arr[0];
+		String[] arr2=new String[n];
+		int g=0;
+		for(int i=0;i<n;i++)
+		{
+		    if(s1.charAt(0)==arr[i].charAt(0))
+		    {
+		        arr2[g]=arr[i];
+		        g++;
+		    }
+		}
+		
+		int h=0;
+		int[] res=new int[g];
+		for(int i=0;i<g;i++)
+		{
+		    int l=arr2[i].length();
+		    String sub=arr2[i].substring(1,l);
+		    int num=Integer.parseInt(sub);
+		    res[h]=num;
+		    h++;
+		}
+		
+		if(g==1)
+		{
+		    System.out.println(arr2[0]);
+		}
+		else
+		{
+		    int max=0,index=0;
+		    for(int i=0;i<g;i++)
+		    {
+		        if(res[i]>max)
+		        {
+		            max=res[i];
+		            index=i;
+		        }
+		    }
+		    for(int i=0;i<g;i++)
+		    {
+		        if(max==res[i])
+		        {
+		            System.out.println(arr2[i]);
+		            break;
+		        }
+		    }
+		}
+	}
+}
