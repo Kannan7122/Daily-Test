@@ -1,0 +1,115 @@
+The program must accept two integers X and Y as the input. The program must print the uncommon
+factors of X and Y in ascending order as the output. If there is no uncommon factor of X and Y then
+the program must print -1 as the output.
+Boundary Condition(s):
+1 <= X, Y <= 1000
+Input Format:
+The first line contains the value of X and Y separated by a space.
+Output Format:
+The first line contains either the uncommon factors of X and Y or -1.
+Example Input/Output 1:
+Input:
+24 100
+Output:
+3 5 6 8 10 12 20 24 25 50 100
+Explanation:
+The factors of 24 are 1, 2, 3, 4, 6, 8, 12 and 24.
+The factors of 100 are 1, 2, 4, 5, 10, 20, 25, 50 and 100.
+So the uncommon factors are 3, 5, 6, 8, 10, 12, 20, 24, 25, 50 and 100.
+Hence the output is 3 5 6 8 10 12 20 24 25 50 100
+Example Input/Output 2:
+Input:
+36 36
+Output:
+-1
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		int[] arr1=new int[1000];
+		int[] arr2=new int[1000];
+		int g=0,h=0,cnt=0;
+		for(int i=1;i<=a;i++)
+		{
+		    if(a%i==0)
+		    {
+		        arr1[g]=i;
+		        g++;
+		    }
+		}
+		for(int j=1;j<=b;j++)
+		{
+		    if(b%j==0)
+		    {
+		        arr2[h]=j;
+		        h++;
+		    }
+		}
+		int[] res=new int[1000];
+		int k=0;
+		for(int i=0;i<g;i++)
+		{
+		    for(int j=0;j<h;j++)
+		    {
+		        if(arr1[i]==arr2[j])
+		        {
+		            arr1[i]=0;
+		            arr2[j]=0;
+		            break;
+		        }
+		    }
+		}
+		//System.out.print(res[1]);
+		for(int i=0;i<h;i++)
+		{
+		    for(int j=0;j<g;j++)
+		    {
+		        if(arr2[i]==arr1[j])
+		        {
+		            arr2[i]=0;
+		            arr1[j]=0;
+		            break;
+		        }
+		    }
+		}
+		int[] f=new int[g+h];
+		int m=0;
+		for(int i=0;i<g;i++)
+		{
+		    if(arr1[i]!=0)
+		    {
+		        f[m]=arr1[i];
+			   cnt++;
+		        m++;
+		    }
+		}
+		for(int i=0;i<h;i++)
+		{
+		    if(arr2[i]!=0)
+		    {
+		        f[m]=arr2[i];
+			   cnt++;
+		        m++;
+		    }
+		}
+		int[] x=new int[m];
+		for(int i=0;i<m;i++)
+		{
+		    x[i]=f[i];
+		}
+		Arrays.sort(x);
+		for(int i=0;i<m;i++)
+		{
+		    System.out.print(x[i]+" ");
+		}
+	}
+}
