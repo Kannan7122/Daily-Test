@@ -1,0 +1,99 @@
+The program must accept two string values S1 and S2 containing only alphabets as the input. The
+program must print the string which has a maximum number of vowels. If both S1 and S2 contain the
+same number of vowels then the program must print S1 as the output. If both S1 and S2 contain only
+consonants then the program must print -1 as the output.
+Boundary Condition(s):
+1 <= Length of S1, S2 <= 100
+Input Format:
+The first line contains S1.
+The second line contains S2.
+Output Format:
+The first line contains S1 or S2 or -1.
+Example Input/Output 1:
+Input:
+Day
+Good
+Output:
+Good
+Explanation:
+In the string Day, the number of vowel is 1.
+In the string Good, the number of vowels is 2.
+So the maximum number of vowels is 2.
+Hence the output is Good
+Example Input/Output 2:
+Input:
+hello
+world
+Output:
+hello
+Example Input/Output 3:
+Input:
+fly
+cry
+Output:
+-1
+
+
+
+
+
+
+
+
+
+
+
+
+Code :
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int vowel(char ch)
+{
+    if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u' || ch=='A' || ch=='E' || ch=='I' || ch=='O' || ch=='U')
+    {
+        return 1;
+    }
+}
+
+int main()
+{
+    char s1[100],s2[100];
+    scanf("%s\n%s",s1,s2);
+    int n1=strlen(s1);
+    int n2=strlen(s2);
+    int c1=0,c2=0;
+    for(int i=0;i<n1;i++)
+    {
+        if(vowel(s1[i])==1)
+        {
+            c1++;
+        }
+    }
+    for(int i=0;i<n2;i++)
+    {
+        if(vowel(s2[i])==1)
+        {
+            c2++;
+        }
+    }
+    if(c1==0 && c2==0)
+    {
+        printf("-1");
+        return 0;
+    }
+    if(c1==c2)
+    {
+        printf("%s",s1);
+    }
+    else if(c1>c2)
+    {
+        printf("%s",s1);
+    }
+    else
+    {
+        printf("%s",s2);
+    }
+}
