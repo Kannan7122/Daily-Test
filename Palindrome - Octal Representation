@@ -1,0 +1,72 @@
+
+The program must accept an integer N as the input. The program must print YES if the octal
+representation of N is a palindrome. Else the program must print NO as the output.
+Boundary Condition(s):
+1 <= N <= 10^9
+Input Format:
+The first line contains the value of N.
+Output Format:
+The first line contains either YES or NO.
+Example Input/Output 1:
+Input:
+657
+Output:
+YES
+Explanation:
+The octal representation of 657 is 1221.
+Here 1221 is a palindrome.
+Hence the output is YES
+Example Input/Output 2:
+Input:
+1699
+Output:
+NO
+Explanation:
+The octal representation of 1699 is 3243.
+Here 3243 is not a palindrome.
+Hence the output is NO
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    long long int n;
+    scanf("%lld",&n);
+    int arr[100];
+    int g=0;
+    while(n!=0)
+    {
+        arr[g]=n%8;
+        g++;
+        n/=8;
+    }
+    int rev[g];
+    int h=0;
+    for(int i=g-1;i>=0;i--)
+    {
+        rev[h]=arr[i];
+        h++;
+    }
+    int cnt=0,c=0;
+    for(int i=0;i<g;i++)
+    {
+        if(arr[i]==rev[i])
+        {
+            cnt++;
+        }
+    }
+    if(cnt==g)
+    {
+        printf("YES");
+    }
+    else
+    {
+        printf("NO");
+    }
+}
