@@ -1,0 +1,66 @@
+
+The program must accept N integers and a one digit integer K as the input. The program must print
+yes if all the integers having unit digit as K are in ascending order. Else the program must print no as
+the output.
+Boundary Condition(s):
+1 <= N <= 1000
+Input Format:
+The first line contains N and K separated by a space.
+The second line contains N integers separated by a space.
+Output Format:
+The first line contains yes or no.
+Example Input/Output 1:
+Input:
+6 8
+18 68 37 12 102 758
+Output:
+yes
+Explanation:
+There are three integers having unit digit as 8.
+They are 18 68 and 758.
+These three integers are in ascending order.
+Hence yes is printed.
+Example Input/Output 2:
+Input:
+8 4
+34 113 144 35 284 99 46 124
+Output:
+no
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int n,x;
+    scanf("%d %d",&n,&x);
+    int arr[n];
+    int a[n];
+    int g=0;
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d ",&arr[i]);
+        if(arr[i]%10==x)
+        {
+            a[g]=arr[i];
+            g++;
+        }
+    }
+    for(int i=0;i<g-1;i++)
+    {
+        if(a[i]<=a[i+1])
+        {
+            continue;
+        }
+        else
+        {
+            printf("no");
+            return 0;
+        }
+    }
+    printf("yes");
+}
