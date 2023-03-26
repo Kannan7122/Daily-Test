@@ -1,0 +1,78 @@
+
+The program must accept an integer N as the input. The program must find the binary representation
+of N as X. Then the program must shift all 1's to the right as Y. Finally, the program must print the
+minimum number of flips required to form Y from X as the output.
+Boundary Condition(s):
+1 <= N <= 10^8
+Input Format:
+The first line contains the values of N.
+Output Format:
+The first line contains the minimum number of flips required to form Y from X based on the given
+conditions.
+Example Input/Output 1:
+Input:
+73
+Output:
+4
+Explanation:
+The binary representation of 73 is 1001001. So X = 1001001.
+After shifting all the binary 1's to the right, the binary representation of 73 becomes 0000111. So Y =
+0000111.
+X=1001001
+Y=0000111
+Here 4 flips are required to form Y from X.
+Hence 4 is printed as the output.
+Example Input/Output 2:
+Input:
+15
+Output:
+0
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		String s1=Integer.toBinaryString(n);
+		int x=s1.length();
+		int cnt=0;
+		for(int i=0;i<x;i++)
+		{
+		    if(s1.charAt(i)=='1')
+		    {
+		        cnt++;
+		    }
+		}
+		String s2="";
+		int y=x-cnt;
+		for(int i=0;i<x;i++)
+		{
+		    if(i<y)
+		    {
+		        s2+='0';
+		    }
+		    else
+		    {
+		        s2+='1';
+		    }
+		}
+		int c=0;
+		for(int i=0;i<x;i++)
+		{
+		    if(s1.charAt(i)==s2.charAt(i))
+		    {
+		        continue;
+		    }
+		    else
+		    {
+		        c++;
+		    }
+		}
+		System.out.println(c);
+	}
+}
