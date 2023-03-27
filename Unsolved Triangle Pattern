@@ -1,0 +1,79 @@
+Input :
+
+abcdef
+
+Output:
+
+--a
+-f-b
+e-d-c
+
+
+
+
+Input :
+
+skillrack
+
+Output :
+
+---s
+--k-k
+-c---i
+a-r-l-l
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+    char ch[100];
+    scanf("%s",ch);
+    int n=strlen(ch);
+    int m=n/2;
+    int cnt=0;
+    for(int i=0;i<n/2;i++)
+    {
+        for(int j=0;j<(n/2)+i;j++)
+        {
+            if(i+j==m-1)
+            {
+                if(i==0)
+                {
+                    printf("%c",ch[i]);
+                }
+                else
+                {
+                    printf("%c",ch[n-i]);
+                }
+            }
+            else if(j-i==m-1)
+            {
+                if(i==0)
+                {
+                    continue;
+                }
+                else
+                {
+                    printf("%c",ch[i]);
+                }
+            }
+            else if(j%2==0 && i==m-1)
+            {
+                int y=n-(i+j);
+                cnt++;
+                printf("%c",ch[y+cnt]);
+            }
+            else
+            {
+                printf("-");
+            }
+        }
+        printf("\n");
+    }
+}
