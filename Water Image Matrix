@@ -1,0 +1,76 @@
+
+The program must accept an integer matrix of size RxC as the input. The program must print YES if
+the elements in the first row are equal to the elements in the last row in their positions and the
+elements in the second row are equal to the elements in the last but second row in their positions and
+so on. Else the program must print NO as the output.
+Boundary Condition(s):
+2 <= R, C <= 50
+Input Format:
+The first line contains R and C separated by a space.
+The next R lines contain C integers each separated by space(s).
+Output Format:
+The first line contains either YES or NO.
+Example Input/Output 1:
+Input:
+4 4
+20 25 40 55
+45 50 65 60
+45 50 65 60
+20 25 40 55
+Output:
+YES
+Explanation:
+The elements in the first row are 20 30 40 and 50.
+The elements in the fourth row are 20 30 40 and 50.
+Here the elements in the first row are equal to the elements in the fourth row.
+The elements in the second row are 45 50 65 and 60.
+The elements in the third row are 45 50 65 and 60.
+Here the elements in the second row are equal to the elements in the third row.
+Hence the output is YES
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int r,c;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d ",&arr[i][j]);
+        }
+    }
+    int count=0;
+    for(int i=0;i<r/2;i++)
+    {
+        int cnt=0;
+        for(int j=0;j<c;j++)
+        {
+            
+            if(arr[i][j]==arr[r-i-1][j])
+            {
+                cnt++;    
+            }
+        }
+        if(cnt==c)
+        {
+            count++;
+        }
+    }
+    if(count==r/2)
+    {
+        printf("YES");
+    }
+    else
+    {
+        printf("NO");
+    }
+}
