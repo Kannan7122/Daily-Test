@@ -1,0 +1,82 @@
+
+The program must accept N integers as the input. The program must find the smallest odd integer
+among the N integers as X. Then the program must find the largest even integer among the N
+integers as Y. Finally, the program must print all the integers between X and Y (inclusive of X and Y) in
+ascending order as the output.
+Note: At least one integer is always odd and at least one integer is always even.
+Boundary Condition(s):
+1 <= N <= 100
+1 <= Each integer value <= 10^7
+Input Format:
+The first line contains N.
+The second line contains N integers separated by space.
+Output Format:
+The first line contains the integers based on the given conditions separated by a space.
+Example Input/Output 1:
+Input:
+5
+5 8 3 2 10
+Output:
+3 4 5 6 7 8 9 10
+Explanation:
+The odd integers are 5 and 3. Here the minimum odd integer is 3.
+The even integers are 8, 2 and 10. Here the maximum even integer is 10.
+So the integers from 3 to 10 are printed as the output.
+Example Input/Output 2:
+Input:
+6
+15 2 8 6 21 91
+Output:
+8 9 10 11 12 13 14 15
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		int max=0,min=99999999;
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.nextInt();
+		    if(arr[i]%2==0)
+		    {
+		        if(arr[i]>max)
+		        {
+		            max=arr[i];
+		        }
+		    }
+		    else
+		    {
+		        if(arr[i]<min)
+		        {
+		            min=arr[i];
+		        }
+		    }
+		}
+		int x,y;
+		if(min>max)
+		{
+		    y=min;
+		    x=max;
+		}
+		else
+		{
+		    y=max;
+		    x=min;
+		}
+		for(int i=x;i<=y;i++)
+		{
+		    System.out.print(i+" ");
+		}
+		
+
+	}
+}
