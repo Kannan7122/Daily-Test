@@ -1,0 +1,49 @@
+
+The program must accept the capacities of N water bottles and an integer K as the input. The program
+must print the maximum possible total capacity of the water bottles by choosing exactly K water
+bottles out of those N water bottles as the output.
+Boundary Condition(s):
+2 <= N <= 100
+1 <= K <= N
+Example Input/Output 1:
+Input:
+4 2
+10 5 7 9
+Output:
+19
+Explanation:
+The maximum possible total capacity of the water bottles by choosing exactly 2 water bottles is 19 (10
++ 9).
+Example Input/Output 2:
+Input:
+9 6
+13 12 73 18 20 55 48 52 57
+Output:
+305
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        Arrays.sort(arr);
+        int sum=0;
+        for(int i=n-1;i>=n-k;i--)
+        {
+            sum+=arr[i];
+        }
+        System.out.println(sum);
+	}
+}
