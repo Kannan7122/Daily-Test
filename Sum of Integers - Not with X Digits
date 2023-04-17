@@ -1,0 +1,75 @@
+
+The program must accept N integers and an integer X as the input. The program must print the
+sum of all the integers which are not having X digits as the output. If there is no such integer then
+the program must print -1 as the output.
+Boundary Condition(s):
+1 <= N <= 1000
+1 <= Each integer value <= 10^8
+1 <= X <= 8
+Input Format:
+The first line contains the values of N and X separated by a space.
+The second line contains N integers separated by space(s).
+Output Format:
+The first line contains either the sum of all the integers which are not having X digits or -1
+Example Input/Output 1:
+Input:
+5 3
+10 525 6 1080 720
+Output:
+1096
+Explanation:
+The integers which are not having 3 digits are 10, 6 and 1080.
+So their sum is 1096 (10 + 6 + 1080).
+Hence the output is 1096
+Example Input/Output 2:
+Input:
+6 2
+12 45 78 56 32 80
+Output:
+-1
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		long x=sc.nextLong();
+		String arr[]=new String[n];
+		long cnt=0,sum=0;
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.next();
+		    if(arr[i].length()!=x)
+		    {
+		        int a=0;
+		        if(arr[i].length()==1)
+		        {
+		            a=Character.getNumericValue(arr[i].charAt(0));
+		        }
+		        else
+		        {
+		            a=Integer.parseInt(arr[i]);
+		        }
+		        sum+=a;
+		        cnt++;
+		    }
+		}
+		if(cnt==0)
+		{
+		    System.out.println("-1");
+		}
+		else
+		{
+		    System.out.println(sum);
+		}
+
+	}
+}
