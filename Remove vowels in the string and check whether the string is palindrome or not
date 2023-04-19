@@ -1,0 +1,47 @@
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		String ss="";
+		for(int i=0;i<n;i++)
+		{
+		    char ch=str.charAt(i);
+		    if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+		    {
+		        continue;
+		    }
+		    else
+		    {
+		        ss+=ch;
+		    }
+		}
+		int l=ss.length();
+		if(l==0)
+		{
+		    System.out.println("-1");
+		    return;
+		}
+		else
+		{
+		    StringBuilder sb=new StringBuilder(ss);
+		    StringBuilder rev=sb.reverse();
+		    String s=rev.toString();
+		    if(ss.equals(s))
+		    {
+		        System.out.println("YES");
+		    }
+		    else
+		    {
+		        System.out.println("NO");
+		    }
+		}
+	}
+}
