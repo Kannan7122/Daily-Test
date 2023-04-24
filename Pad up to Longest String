@@ -1,0 +1,80 @@
+
+The program must accept N string values as the input. The program must pad the string values
+with asterisks character in the front so that the length of all the string values will be equal to the
+length of the longest string. Finally the program must print the modified string values as the output.
+Boundary Condition(s):
+1 <= N, Length of string <= 100
+Input Format:
+The first line contains N.
+The next N lines contain N string values.
+Output Format:
+The first N lines contain the modified string values.
+Example Input/Output 1:
+Input:
+5
+trillion
+million
+chocolate
+zap
+mango
+Output:
+*trillion
+**million
+chocolate
+******zap
+****mango
+Explanation:
+The longest string is chocolate having the length 9.
+The other string values are padded with asterisks in front so that each string will contain 9
+characters including asterisks.
+Example Input/Output 2:
+Input:
+4
+drum
+pocket
+minion
+dragon
+Output:
+**drum
+pocket
+minion
+dragon
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		String[] arr=new String[n];
+		int max=0;
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.next();
+		    if(arr[i].length()>max)
+		    {
+		        max=arr[i].length();
+		    }
+		}
+		for(int i=0;i<n;i++)
+		{
+		    int l=max-arr[i].length();
+		    while(l!=0)
+		    {
+		        System.out.print("*");
+		        l--;
+		    }
+		    for(int j=0;j<arr[i].length();j++)
+		    {
+		        System.out.print(arr[i].charAt(j));
+		    }
+		    System.out.println();
+		}
+
+	}
+}
