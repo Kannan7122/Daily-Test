@@ -1,0 +1,101 @@
+
+The program must accept N string values as the input. The program must remove all the digits in
+each string value. Then the program must print the string having the maximum length as the
+output. If more than one string have the maximum length then the program must print the first
+occurring string as the output. If all the characters in each string are digits then the program must
+print -1 as the output.
+Boundary Condition(s):
+1 <= N <= 1000
+1 <= Length of each string <= 100
+Input Format:
+The first line contains the value of N.
+The next N lines contain a string value on each line.
+Output Format:
+The first line contains either the string having the maximum length or -1 based on the given
+conditions.
+Example Input/Output 1:
+Input:
+4
+hello123
+w1o2r3l4d5
+5-3=2
+KQJ10TO2A
+Output:
+KQJTOA
+Explanation:
+After removing all the digits in each string value, the string values becomes
+hello
+world
+-=
+KQJTOA
+Here the string "KQJTOA" is having the maximum length as 6. So it is printed.
+Example Input/Output 2:
+Input:
+5
+48224
+9375880
+2624542
+7991267
+641941
+Output:
+-1
+
+
+
+
+Code :
+
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		String[] arr=new String[n];
+		String[] res=new String[n];
+		int max=0,index=0,cnt=0;
+		String ss="";
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.next();
+		}
+		for(int i=0;i<n;i++)
+		{
+		    int l=arr[i].length();
+		    String s="";
+		    for(int j=0;j<l;j++)
+		    {
+		        char ch=arr[i].charAt(j);
+		        if(Character.isDigit(ch))
+		        {
+		            continue;
+		        }
+		        else
+		        {
+		            s+=ch;
+		        }
+		    }
+		    int length=s.length();
+		    if(length>max)
+		    {
+		        cnt++;
+		        ss="";
+		        max=length;
+		        for(int k=0;k<length;k++)
+		        {
+		            ss+=s.charAt(k);
+		        }
+		    }
+		}
+		if(cnt==0)
+		{
+		    System.out.print("-1");
+		}
+		else
+		{
+		    System.out.print(ss);
+		}
+
+	}
+}
