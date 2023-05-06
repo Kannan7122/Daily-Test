@@ -1,0 +1,82 @@
+Program :
+
+
+The program must accept an integer N as the input. The program must print the odometer pattern
+for N as shown in the Example Input/Output section.
+Boundary Condition(s):
+1 <= N <= 10^9
+Input Format:
+The first line contains the integer N.
+Output Format:
+The lines contain the odometer pattern for N as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+529
+Output:
+000
+100
+200
+300
+400
+500
+510
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+Example Input/Output 2:
+Input:
+31002
+Output:
+00000
+10000
+20000
+30000
+31000
+31001
+31002
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		String s="";
+		for(int i=0;i<n;i++)
+		{
+		    s+='0';
+		}
+		System.out.println(s);
+		int k=0;
+		String ss="";
+		for(int i=0;i<n;i++)
+		{
+		    int x=Character.getNumericValue(str.charAt(i));
+		    while(k!=x)
+		    {
+		        k++;
+		        if(i!=0)
+		        {
+		            System.out.print(ss);
+		        }
+		        System.out.println(k+""+s.substring(i+1,n));
+		    }
+		    char ch=(char)(k+'0');
+		    ss+=ch;
+		    k=0;
+		}
+
+	}
+}
