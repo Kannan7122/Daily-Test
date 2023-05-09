@@ -1,0 +1,93 @@
+
+The program must accept a string S as the input. The program must print YES if S is formed by
+repeatedly concatenating a substring of S. Else the program must print NO as the output.
+Boundary Condition(s):
+2 <= Length of S <= 1000
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains either YES or NO.
+Example Input/Output 1:
+Input:
+abcabcabc
+Output:
+YES
+Explanation:
+The string "abcabcabc" is formed by using the substring "abc".
+Hence the output is YES
+Example Input/Output 2:
+Input:
+aabbaabbaabb
+Output:
+YES
+Explanation:
+The string "aabbaabbaabb" is formed by using the substring "aabb".
+Hence the output is YES
+Example Input/Output 3:
+Input:
+pqrspqrt
+Output:
+NO
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		int index=0;
+		char ch1=str.charAt(0);
+		int cnt=0;
+		for(int i=1;i<n;i++)
+		{
+		    char ch2=str.charAt(i);
+		    if(ch1==ch2)
+		    {
+		        if(cnt!=0)
+		        {
+		            index=i;
+		            break;
+		        }
+		        else
+		        {
+		            continue;
+		        }
+		    }
+		    else
+		    {
+		        cnt++;
+		    }
+		}
+		String s=str.substring(0,index);
+		int l=s.length();
+		int c=0;
+		for(int i=0;i<n;i=i+l)
+		{
+		    String ss=str.substring(i,i+l);
+		    if(s.equals(ss))
+		    {
+		        continue;
+		    }
+		    else
+		    {
+		        c++;
+		        break;
+		    }
+		}
+		if(c==0)
+		{
+		    System.out.println("YES");
+		}
+		else
+		{
+		    System.out.println("NO");
+		}
+
+	}
+}
