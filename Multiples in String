@@ -1,0 +1,70 @@
+Program :
+
+
+The program must accept a string value S and an integer N as the input. The program must print
+the output based on the following conditions.
+-If the length of the string S is divisible by N, then the program must print the characters
+present at the positions of multiples of N in the string S as the output.
+-If the length of the string S is not divisible by N, then the program must print the characters which
+are not present at the positions of multiples of N in the string S as the output.
+Boundary Condition(s):
+1 <= Length of S <= 100
+1 <= N <= Length of S
+Input Format:
+The first line contains the string S.
+The second line contains the integer N.
+Output Format:
+The first line contains the string based on the given condition.
+Example Input/Output 1:
+Input:
+Encyclopedia
+3
+Output:
+clea
+Explanation:
+The length of Encyclopedia is 12.
+The length 12 is a divisible integer of 3.
+Hence the multiples of 3  position are c, l, e, and a.
+Hence the output is clea
+Example Input/Output 2:
+Input:
+wikipedia
+2
+Output:
+wkpda
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		int x=sc.nextInt();
+		for(int i=0;i<n;i++)
+		{
+		    if(n%x==0)
+		    {
+		        if(i!=0)
+		        {
+		            if((i+1)%x==0)
+		            {
+		                System.out.print(str.charAt(i));
+		            }
+		        }
+		    }
+		    else
+		    {
+		        if((i+1)%x!=0)
+		        {
+		            System.out.print(str.charAt(i));
+		        }
+		    }
+		}
+
+	}
+}
