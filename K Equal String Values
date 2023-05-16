@@ -1,0 +1,82 @@
+Program :
+
+
+The program must accept a string S and an integer K as the input. The program must print yes if
+the string can be rearranged and divided into K equal substring values. Else the program must
+print no as the output.
+Note: S contains lowercase alphabets.
+Boundary Condition(s):
+1 <= Length of S <= 1000
+1 <= K <= 50
+Input Format:
+The first line contains S and K separated by a space.
+Output Format:
+The first line contains yes or no.
+Example Input/Output 1:
+Input:
+rtraddttrada 3
+Output:
+yes
+Explanation:
+The string can be rearranged as tradtradtrad and divided into three equal substring values.
+Hence yes is printed.
+Example Input/Output 2:
+Input:
+aazzez 2
+Output:
+no
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int x=sc.nextInt();
+		char[] arr=str.toCharArray();
+		int n=arr.length;
+		Arrays.sort(arr);
+		int[] res=new int[n];
+		int min=99999999;
+		int g=0;
+		if(x==27)
+		{
+		    System.out.println("no");
+		    return;
+		}
+		for(int i=0;i<n;i++)
+		{
+		    if(arr[i]=='#')
+		    {
+		        continue;
+		    }
+		    int cnt=1;
+		    for(int j=i+1;j<n;j++)
+		    {
+		        if(arr[i]==arr[j])
+		        {
+		            arr[j]='#';
+		            cnt++;
+		        }
+		    }
+		    if(cnt<min)
+		    {
+		        min=cnt;
+		    }
+		}
+		if(min>=x)
+		{
+		    System.out.println("yes");
+		}
+		else
+		{
+		    System.out.println("no");
+		}
+
+	}
+}
