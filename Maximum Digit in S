@@ -1,0 +1,93 @@
+Program :
+
+
+The program must accept a string S as the input. The program must print the digit in string S which
+has occurred the maximum number of times as the output. If two or more digits have occurred for
+the maximum number of times then the program must print the smallest digit among them as the
+output.
+Note: Atleast one digit is present in S.
+Boundary Condition(s):
+1 <= Length of S <= 10^4
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains the digit which has occurred the maximum number of times
+Example Input/Output 1:
+Input:
+The cost of hp ac033tx is 45,0000.
+Output:
+0
+Explanation:
+The count of occurrence of the digit 0 is 5.
+The count of occurrence of the digit 3 is 2.
+The count of occurrence of the digit 4 is 1.
+The count of occurrence of the digit 5 is 1.
+Here the count of occurrence of the digit 0 is maximum.
+Hence the output is 0
+Example Input/Output 2:
+Input:
+The Finite work requires atleast 125 man power.
+Output:
+1
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        int n=str.length();
+        int[] arr=new int[n];
+        int g=0;
+        for(int i=0;i<n;i++)
+        {
+            char ch=str.charAt(i);
+            if(Character.isDigit(ch))
+            {
+                int x=Character.getNumericValue(ch);
+                arr[g]=x;
+                g++;
+            }
+        }
+        int max=0;
+        int res=0;
+        for(int i=0;i<g;i++)
+        {
+            if(arr[i]==-1)
+            {
+                continue;
+            }
+            int cnt=0;
+            for(int j=i+1;j<g;j++)
+            {
+                if(arr[i]==arr[j])
+                {
+                    arr[j]=-1;
+                    cnt++;
+                }
+            }
+            if(i==0 && cnt==max)
+            {
+                res=arr[i];
+            }
+            if(cnt>max)
+            {
+                res=arr[i];
+                max=cnt;
+            }
+            else if(cnt==max)
+            {
+                if(arr[i]<res)
+                {
+                    res=arr[i];
+                }
+            }
+        }
+        System.out.print(res);
+	}
+}
