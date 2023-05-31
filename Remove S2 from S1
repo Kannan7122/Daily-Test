@@ -1,0 +1,83 @@
+Program :
+
+
+The program must accept two string values S1 and S2 as the input. If S2 is a substring of S1 then
+the program must remove the string S2 which is present in S1. It is repeated till all the ocurrences
+of the string S2 are removed from S1. The program must print the number of times the string S2 is
+removed from the string S1 as the output. If S2 is not the substring of S1 then the program must
+print -1 as the output.
+Boundary Condition(s):
+2 <= Length of S1, S2 <= 10^6
+Input Format:
+The first line contains the string S1.
+The second line contains the string S2.
+Output Format:
+The first line contains either the number of times the string S2 is removed from the string S1 or -1.
+Example Input/Output 1:
+Input:
+abcdaabcdbcdd
+abcd
+Output:
+3
+Explanation:
+The substring "abcd" is removed from the string "abcdaabcdbcdd", the modified string value is
+"aabcdbcdd".
+By removing the substring "abcd" from the sting "aabcdbcdd", the modified string value is "abcdd".
+After removing the last occurrence of the substring "abcd" from the string "abcdd", the modified
+string value is "d".
+Hence the count is 3.
+Example Input/Output 2:
+Input:
+aabcdbcd
+acd
+Output:
+-1
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str1=sc.next();
+		String str2=sc.next();
+		int n=str1.length();
+		int n2=str2.length();
+		int cnt=0;
+		int i=0;
+		while(true)
+		{
+		    int ind=str1.indexOf(str2);
+		    if(ind>=0)
+		    {
+		        cnt++;
+		        int x=ind+n2;
+		        String s=str1.substring(0,ind);
+		        s+=str1.substring(x,n);
+		        str1=s;
+		        n=str1.length();
+		    }
+		    else
+		    {
+		        i++;
+		    }
+		    if(i>=n)
+		    {
+		        break;
+		    }
+		}
+		if(cnt==0)
+		{
+		    System.out.println("-1");
+		}
+		else
+		{
+		    System.out.println(cnt);
+		}
+	}
+}
