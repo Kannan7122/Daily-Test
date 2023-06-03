@@ -1,0 +1,103 @@
+Program :
+
+
+The program must accept an integer matrix of size NxN as the input. The program must traverse
+the matrix in the shape of 8 and print the values as shown in the Example Input/Output section.
+Boundary Condition(s):
+2 <= N <= 50
+Input Format:
+The first line contains the value of N.
+The next N lines contain N integers separated by space(s).
+Output Format:
+The first line contains the integers separated by a space as shown in the Example Input/Output
+section.
+Example Input/Output 1:
+Input:
+5
+26 31 37 50 69
+12 28 52 42 41
+38 34 47 12 29
+35 20 57 67 19
+58 32 16 70 46
+Output:
+26 31 37 50 69 42 47 20 58 32 16 70 46 67 47 28
+Explanation:
+26 31 37 50 69
+12 28 52 42 41
+38 34 47 12 29
+35 20 57 67 19
+58 32 16 70 46
+Example Input/Output 2:
+Input:
+3
+1 2 3
+4 5 6
+7 8 9
+Output:
+1 2 3 5 7 8 9 5
+
+
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int arr[n][n];
+    int a1[n],a2[n],a3[n],a4[n];
+    int q=0,w=0,e=0,r=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            scanf("%d ",&arr[i][j]);
+            if(i==0)
+            {
+                a1[q]=arr[i][j];
+                q++;
+            }
+            
+            if(i==n-1)
+            {
+                a3[e]=arr[i][j];
+                e++;
+            }
+            
+            if(i==j)
+            {
+                a4[r]=arr[i][j];
+                r++;
+            }
+            
+            if(j==n-i-1)
+            {
+                a2[w]=arr[i][j];
+                w++;
+            }
+        }
+    }
+    for(int i=0;i<n-1;i++)
+    {
+        printf("%d ",a1[i]);
+    }
+    for(int i=0;i<n-1;i++)
+    {
+        printf("%d ",a2[i]);
+    }
+    for(int i=0;i<n-1;i++)
+    {
+        printf("%d ",a3[i]);
+    }
+    for(int i=n-1;i>=1;i--)
+    {
+        printf("%d ",a4[i]);
+    }
+}
