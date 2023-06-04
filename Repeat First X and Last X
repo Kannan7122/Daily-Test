@@ -1,0 +1,64 @@
+Program :
+
+
+The program must accept a string S and an integer X as the input. The program must form a new
+string by concatenating the first X and the last X characters of S alternatively. The length of the
+new string must be equal to the length of S. Finally, the program must print the new string as the
+output.
+Boundary Condition(s):
+2 <= Length of S <= 100
+1 <= X <= Length of S
+Input Format:
+The first line contains the string S.
+The second line contains the value of X.
+Output Format:
+The first line contains the new string which is formed as per the given conditions.
+Example Input/Output 1:
+Input:
+strawberry
+3
+Output:
+strrrystrr
+Explanation:
+The first 3 characters in the string strawberry are s, t and r.
+The last 3 characters in the string strawberry are r, r and y.
+So the new string is formed by concatenating str and rry alternatively.
+Here the length of the string strawberry is 10. Hence the output is strrrystrr
+Example Input/Output 2:
+Input:
+book
+2
+Output:
+book
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int x=sc.nextInt();
+		int n=str.length();
+		String s1=str.substring(0,x);
+		String s2=str.substring(n-x,n);
+		String ss="";
+		ss+=s1;
+		ss+=s2;
+		int l=ss.length();
+		int g=0;
+		while(n!=0)
+		{
+		    System.out.print(ss.charAt(g));
+		    g++;
+		    if(g==l)
+		    {
+		        g=0;
+		    }
+		    n--;
+		}
+	}
+}
