@@ -1,0 +1,76 @@
+Program :
+
+The program must accept an integer N as the input. The program must print the desired pattern as
+shown in the Example Input/Output section.
+Boundary Condition(s):
+2 <= N <= 100
+Input Format:
+The first line contains the value of N.
+Output Format:
+The lines containing the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+3
+Output:
+- - 3
+- 3 2 3
+3 2 1 2 3
+Example Input/Output 2:
+Input:
+4
+Output:
+- - - 4
+- - 4 3 4
+- 4 3 2 3 4
+4 3 2 1 2 3 4
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int x=n;
+    int k=n-1;
+    for(int i=0;i<n;i++)
+    {
+        int num=n;
+        int cnt=0;
+        for(int j=0;j<x;j++)
+        {
+            if(j<k)
+            {
+                printf("- ");
+            }
+            else
+            {
+                if(j<n)
+                {
+                    printf("%d ",num);
+                    num--;
+                    cnt++;
+                }
+                else
+                {
+                    if(cnt>0)
+                    {
+                        num++;
+                        cnt=0;
+                    }
+                    num++;
+                    printf("%d ",num);
+                }
+            }
+        }
+        k--;
+        x++;
+        printf("\n");
+    }
+}
