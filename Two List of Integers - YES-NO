@@ -1,0 +1,54 @@
+Program :
+
+
+The program must accept two list of integers where the integers are sorted in ascending order as
+the input. The program must print YES if all the integers in the second list have occurred in the first
+list. Else the program must print NO as the output.
+Boundary Condition(s):
+1 <= Each integer value <= 10^9
+Input Format:
+The first line contains the integers of the first list separated by a space.
+The second line contains the integers of the second list separated by a space.
+Output Format:
+The first line contains either YES or NO.
+Example Input/Output 1:
+Input:
+2 3 5 7
+3 5
+Output:
+YES
+Example Input/Output 2:
+Input:
+10 20 40 60
+20 30 40
+Output:
+NO
+Example Input/Output 3:
+Input:
+15 25 40 95 99 100
+15 25 40 95 95
+Output:
+NO
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str1=sc.nextLine();
+		String str2=sc.nextLine();
+		boolean index=str1.contains(str2);
+		if(index)
+		{
+		    System.out.println("YES");
+		}
+		else
+		{
+		    System.out.println("NO");
+		}
+	}
+}
