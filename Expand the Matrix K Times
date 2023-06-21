@@ -1,0 +1,77 @@
+Program :
+
+The program must accept an integer matrix of size RxC and an integer K as the input. The program
+must print the desired pattern as shown in the Example Input/Output sections.
+Boundary Condition(s):
+1 <= R, C, K <= 100
+Input Format:
+The first line contains the values of R, C and K separated by space(s).
+The next R lines contain C elements separated by space(s).
+Output Format:
+The first R*K lines contain the desired pattern as shown in the Example Input/Output sections.
+Example Input/Output 1:
+Input:
+2 4 3
+1 2 5 4
+6 5 8 7
+Output:
+1 1 1 2 2 2 5 5 5 4 4 4 
+1 1 1 2 2 2 5 5 5 4 4 4 
+1 1 1 2 2 2 5 5 5 4 4 4 
+6 6 6 5 5 5 8 8 8 7 7 7 
+6 6 6 5 5 5 8 8 8 7 7 7 
+6 6 6 5 5 5 8 8 8 7 7 7 
+Example Input/Output 2:
+Input:
+2 3 2
+7 9 3
+4 5 6
+Output:
+7 7 9 9 3 3 
+7 7 9 9 3 3 
+4 4 5 5 6 6 
+4 4 5 5 6 6 
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int row,col,num;
+    scanf("%d %d %d",&row,&col,&num);
+    int arr[row][col];
+    for(int i=0;i<row;i++) {
+        for(int j=0;j<col;j++) {
+            scanf("%d ",&arr[i][j]);
+        }
+    }
+    int r=row*num;
+    int c=col*num;
+    int count=0,m=0;
+    int g=num;
+    for(int i=0;i<r;i++) {
+        int n=0;
+        int k=num;
+        for(int j=0;j<c;j++) {
+            if(j<k) {
+                printf("%d ",arr[m][n]);
+            }
+            else {
+                k+=num;
+                n++;
+                j--;
+            }
+        }
+        count++;
+        if(count==g) {
+            m++;
+            g+=num;
+        }
+        printf("\n");
+    }
+}
