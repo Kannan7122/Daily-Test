@@ -1,0 +1,71 @@
+Program :
+
+
+The program must accept N integers and an integer K as the input. The program must find the
+maximum integer among N integers as X. Then the program must print X if the value of all other
+integer values when multiplied by K is less than or equal to X. Else the program must print -1 as the
+output.
+Boundary Condition(s):
+2 <= N <= 10^5
+1 <= K <= 100
+Input Format:
+The first line contains the two integers N and K separated by a space.
+The second line contains N integers separated by space(s).
+Output Format:
+The first line contains either the maximum integer or -1.
+Example Input/Output 1:
+Input:
+5 3
+4 1 0 12 3
+Output:
+12
+Explanation:
+The maximum integer is 12.
+All the other integers when multiplied by 3 are 12, 3, 0 and 9.
+Here all other integers are less than or equal to 12.
+Hence the output is 12
+Example Input/Output 2:
+Input:
+6 5
+10 20 5 4 80 2
+Output:
+-1
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int x=sc.nextInt();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++) {
+		    arr[i]=sc.nextInt();
+		}
+		Arrays.sort(arr);
+		int max=arr[n-1];
+		int cnt=0;
+		for(int i=0;i<n;i++) {
+		    if(arr[i]==max) {
+		        continue;
+		    }
+		    int k=x*arr[i];
+		    if(k<=max) {
+		        cnt++;
+		    }
+		}
+		if(cnt==n-1) {
+		    System.out.println(max);
+		}
+		else {
+		    System.out.println("-1");
+		}
+	}
+}
