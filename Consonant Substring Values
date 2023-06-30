@@ -1,0 +1,72 @@
+Program :
+
+
+The program must accept a string S as the input. The program must split the string S into substring
+values by removing all the vowels in the string S. Then the program must print all the substring values
+in the order of occurrence separated by a hyphen.
+Note: At least one consonant is always present in the string S.
+Boundary Condition(s):
+1 <= Length of S <= 100
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains all the substring values in the order of occurrence separated by a hyphen as per
+the given condition.
+Example Input/Output 1:
+Input:
+Forests
+Output:
+F-r-sts
+Explanation:
+There are three substring values after removing the vowels in the string "Forests".
+Hence the output is F-r-sts
+Example Input/Output 2:
+Input:
+ACTIVITIES
+Output:
+CT-V-T-S
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+    
+    public static int isvowel(char ch) {
+        if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U') {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    }
+    
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		String s="";
+		char[] arr=str.toCharArray();
+		int n=str.length();
+		int cnt=0,c=0;
+		for(int i=0;i<n;i++) {
+		    if(isvowel(arr[i])==1) {
+		        if(cnt==0) {
+		            continue;
+		        }
+		        else {
+		            c++;
+		        }
+		    }
+		    else {
+		        cnt++;
+		        if(c!=0) {
+		            s+='-';
+		            c=0;
+		        }
+		        s+=arr[i];
+		    }
+		}
+		System.out.println(s);
+	}
+}
