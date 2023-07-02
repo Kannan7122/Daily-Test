@@ -1,0 +1,99 @@
+Program :
+
+
+The program must accept two string values S1 and S2 containing only alphabets. The number of
+vowels in S1 will always be equal to the number of vowels in S2. The program must replace the vowels
+in S2 with the vowels in S1 in the same order of occurrence and vice versa. Finally, the program must
+print the modified string values S1 and S2 as the output.
+Boundary Condition(s):
+1 <= Length of S1, S2 <= 100
+Input Format:
+The first line contains the string S1.
+The second line contains the string S2.
+Output Format:
+The first line contains the modified string S1.
+The second line contains the modified string S2.
+Example Input/Output 1:
+Input:
+apple
+mango
+Output:
+applo
+mange
+Explanation:
+The vowels in "apple" are a and e.
+The vowels in "mango" are a and o.
+So they are interchanged in the same order of occurrence.
+Hence the output is
+applo
+mange
+Example Input/Output 2:
+Input:
+pollute
+elephant
+Output:
+pelleta
+oluphent
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int isvowel(char ch) {
+    if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U') {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+
+
+int main()
+{
+    char ch1[100],ch2[100];
+    scanf("%s\n%s",&ch1,&ch2);
+    char arr1[100];
+    char arr2[100];
+    int g=0,h=0;
+    int n1=strlen(ch1),n2=strlen(ch2);
+    for(int i=0;i<n1;i++) {
+        if(isvowel(ch1[i])==1) {
+            arr1[g]=ch1[i];
+            g++;
+        }
+    }
+    for(int i=0;i<n2;i++) {
+        if(isvowel(ch2[i])==1) {
+            arr2[h]=ch2[i];
+            h++;
+        }
+    }
+    int k=0;
+    for(int i=0;i<n1;i++) {
+        if(isvowel(ch1[i])==1) {
+            printf("%c",arr2[k]);
+            k++;
+        }
+        else {
+            printf("%c",ch1[i]);
+        }
+    }
+    printf("\n");
+    k=0;
+    for(int i=0;i<n2;i++) {
+        if(isvowel(ch2[i])==1) {
+            printf("%c",arr1[k]);
+            k++;
+        }
+        else {
+            printf("%c",ch2[i]);
+        }
+    }
+    
+}
