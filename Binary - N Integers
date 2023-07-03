@@ -1,0 +1,59 @@
+Program :
+
+
+The program must accept N integers as the input. The program must form an integer K using N
+integers based on the following condition. The binary representation of the integer K must be formed
+by using the second bit from the end (last but one bit) of every integer among the N integers in the
+given order. Finally the program must print the integer K as the output.
+Boundary Condition(s):
+1 <= N <= 15
+1 <= Each integer value <= 10^8
+Input Format:
+The first line contains the value of N.
+The second line contains N Integers separated by space(s).
+Output Format:
+The first line contains value of K.
+Example Input/Output 1:
+Input:
+3
+10 9 4
+Output:
+4
+Explanation:
+The second bit of 10 from the end is 1.
+The second bit of 9 from the end is 0.
+The second bit of 4 from the end is 0.
+The binary value formed is 100 whose decimal value is 4. Hence 4 is printed as the output.
+Example Input/Output 2:
+4
+1 9 7 2
+Output:
+3
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		String s="";
+		for(int i=0;i<n;i++) {
+		    arr[i]=sc.nextInt();
+		    int x=arr[i];
+		    String bin=Integer.toBinaryString(x);
+		    int l=bin.length();
+		    if(l==1) {
+		        s+='0';
+		        continue;
+		    }
+		    s+=bin.charAt(l-2);
+		}
+		System.out.println(Integer.parseInt(s,2));
+	}
+}
