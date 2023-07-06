@@ -1,0 +1,59 @@
+Program :
+
+
+The program must accept a string S as the input. The program must print the desired pattern as
+shown in the Example Input/Output section.
+Boundary Condition(s):
+1 <= Length of S <= 100
+Input Format:
+The first line contains the string S.
+Output Format:
+The lines containing the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+coding
+Output:
+ggggggc
+nnnnnoo
+iiiiddd
+dddiiii
+oonnnnn
+cgggggg
+Example Input/Output 2:
+Input:
+SKILL
+Output:
+LLLLLS
+LLLLKK
+IIIIII
+KKLLLL
+SLLLLL
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    char ch[100];
+    scanf("%s",ch);
+    int n=strlen(ch);
+    int k=n,g=0;
+    int x=n+1;
+    for(int i=n-1;i>=0;i--) {
+        for(int j=0;j<k;j++) {
+            printf("%c",ch[i]);
+        }
+        for(int j=k;j<x;j++) {
+            printf("%c",ch[g]);
+        }
+        g++;
+        k--;
+        printf("\n");
+    }
+}
