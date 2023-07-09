@@ -1,0 +1,82 @@
+Program :
+
+
+The program must accept two string values S1 and S2 and an integer K representing the number of
+rotations as the input. The program must print YES if the string S2 is formed by rotating the string S1
+for K times in either clockwise or anti-clockwise direction as the output. Else the program must
+print NO as the output.
+Boundary Condition(s):
+1 <= Length of S1, S2 <= 100
+1 <= K <= 1000
+Input Format:
+The first line contains S1.
+The second line contains S2.
+The third line contains K.
+Output Format:
+The first line contains YES or NO.
+Example Input/Output 1:
+Input:
+skillrack
+lrackskil
+5
+Output:
+YES
+Explanation:
+After rotating the string skillrack for 5 times in clockwise direction, the string becomes lrackskil which
+is equal to S2.
+So YES is printed.
+Example Input/Output 2:
+Input:
+watermelon
+ermelonwat
+23
+Output:
+YES
+Example Input/Output 3:
+Input:
+ethernet
+netether
+4
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s1=sc.next();
+		String s2=sc.next();
+		int x=sc.nextInt();
+		int n1=s1.length();
+		int n2=s2.length();
+		String ss1=s1;
+		String res="";
+		for(int i=0;i<x;i++) {
+		    String ch1=ss1.substring(1,n1);
+		    char ch=ss1.charAt(0);
+		    ss1=ch1;
+		    ss1+=ch;
+		}
+		String ss2=s1;
+		for(int i=0;i<x;i++) {
+		    String ch1=ss2.substring(0,n1-1);
+		    char c=ss2.charAt(n1-1);
+		    String ch="";
+		    ch+=c;
+		    ss2=ch;
+		    ss2+=ch1;
+		}
+		if(ss1.equals(s2) || ss2.equals(s2)) {
+		    System.out.println("YES");
+		}
+		else {
+		    System.out.println("NO");
+		}
+	}
+}
