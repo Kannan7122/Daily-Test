@@ -1,0 +1,74 @@
+Program :
+
+
+The program must accept a list of unique positive integers and a positive integer X as the input.
+The program must find the sum of integers left to integer X then the program must find the sum of
+integers right to integer X. The program must print the minimum sum value among the obtained
+two sum values as the output. If there is no integer before or after integer X, the program must print
+0 as the minimum sum value.
+Note: The integer X is always present in the given list of integers.
+Boundary Condition(s):
+1 <= Each integer value <= 10^5
+Input Format:
+The first line contains the list of integers separated by space(s).
+The second line contains the positive integer X.
+Output Format:
+The first line contains the minimum sum value based on the given conditions.
+Example Input/Output 1:
+Input:
+1 2 3 4 5 6 7 8 9
+5
+Output:
+10
+Explanation:
+The integers left to integer 5 are 1 2 3 and 4. So their sum is 10.
+The integers right to integer 5 are 6 7 8 and 9. So their sum is 30.
+Here the minimum sum is 10.
+So 10 is printed as the output.
+Example Input/Output 2:
+Input:
+9 1 2 8 7 3
+7
+Output:
+3
+
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int arr[100000];
+    int n,g=0;
+    while(scanf("%d ",&n)!=EOF) {
+        arr[g]=n;
+        g++;
+    }
+    int x=arr[g-1];
+    g--;
+    int s1=0,s2=0,cnt=0;
+    for(int i=0;i<g;i++) {
+        if(arr[i]==x) {
+            cnt++;
+            continue;
+        }
+        if(cnt==0) {
+            s1+=arr[i];
+        }
+        else {
+            s2+=arr[i];
+        }
+    }
+    if(s1<s2) {
+        printf("%d",s1);
+    }
+    else {
+        printf("%d",s2);
+    }
+}
