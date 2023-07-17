@@ -1,0 +1,56 @@
+Program :
+
+
+The program must accept a floating point value N as the input. The program must reverse integer
+part and fraction part and print the modified floating point value with the precision up to two decimal
+places.
+Boundary Condition(s):
+1.00000 <= N <= 99999.99999
+Input Format:
+The first line contains N.
+Output Format:
+The first line contains reversed value with the precision upto two decimal places of N.
+Example Input/Output 1:
+Input:
+140.105
+Output:
+41.50
+Explanation:
+After the reverse of the integer part the value 140 becomes 041 and for the fraction part the value
+105 becomes 501 and with the precion upto 2 decimal places.
+Hence the output is 41.50
+Example Input/Output 2:
+Input:
+10005.200
+Output:
+50001.00
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		int x=str.indexOf(".");
+		String s1=str.substring(0,x);
+		String s2=str.substring(x+1,n);
+		StringBuilder sb1=new StringBuilder(s1);
+		StringBuilder sb2=new StringBuilder(s2);
+		StringBuilder rev1=sb1.reverse();
+		StringBuilder rev2=sb2.reverse();
+		String ss1=rev1.toString();
+		String ss2=rev2.toString();
+		String r=ss1;
+		r+=".";
+		r+=ss2;
+		double k=Double.parseDouble(r);
+		System.out.printf("%.2f",k);
+	}
+}
