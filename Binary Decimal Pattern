@@ -1,0 +1,62 @@
+Program :
+
+
+The program must accept an integer N as the input. The program must print the binary-decimal
+pattern as shown in the Example Input/Output section.
+Boundary Condition(s):
+1 <= N <= 10^16
+Input Format:
+The first line contains the value of N.
+Output Format:
+The lines containing the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+1142
+Output:
+1111
+0011
+0010
+0010
+Example Input/Output 2:
+Input:
+121
+Output:
+111
+010
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		String[] ss=str.split("");
+		String[] s=str.split("");
+		Arrays.sort(s);
+		int c=s.length;
+		int r=Integer.parseInt(s[c-1]);
+		int[][] arr=new int[r][c];
+		for(int i=0;i<c;i++) {
+		    int k=Integer.parseInt(ss[i]);
+		    for(int j=0;j<r;j++) {
+		        if(j<k) {
+		            arr[j][i]=1;
+		        }
+		        else {
+		            arr[j][i]=0;
+		        }
+		    }
+		}
+		for(int i=0;i<r;i++) {
+		    for(int j=0;j<c;j++) {
+		        System.out.print(arr[i][j]);
+		    }
+		    System.out.println();
+		}
+	}
+}
