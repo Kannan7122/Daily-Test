@@ -1,0 +1,64 @@
+Program :
+
+
+The program must accept N integers and an integer K as the input. The program must print the
+absolute difference between the number of integers greater than or equal to K and the number of
+integers less than K as the output.
+Boundary Condition(s):
+1 <= N, K <= 10^3
+1 <= Each integer value <= 10^3
+Input Format:
+The first line contains N.
+The second line contains N integers separated by a space.
+The third line contains K.
+Output Format:
+The first line contains the absolute difference.
+Example Input/Output 1:
+Input:
+5
+20 30 50 44 10
+35
+Output:
+1
+Explanation:
+There are two integers (44 and 50) which are greater than or equal to 35.
+There are three integers (20 30 and 10) which are less than 35.
+Here the absolute difference is |2 - 3| = 1.
+Hence the output is 1
+Example Input/Output 2:
+Input:
+10
+3 7 9 4 1 13 6 2 5 8
+3
+Output:
+6
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++) {
+		    arr[i]=sc.nextInt();
+		}
+		int k=sc.nextInt();
+		int c1=0,c2=0;
+		for(int i=0;i<n;i++) {
+		    if(arr[i]>=k) {
+		        c1++;
+		    }
+		    else {
+		        c2++;
+		    }
+		} 
+		System.out.println(Math.abs(c1-c2));
+		
+	}
+}
