@@ -1,0 +1,38 @@
+Program :
+
+Input :
+16 5
+
+Output :
+4
+
+Explanation :
+16/2 = 8/2 = 4/2 = 2
+5/2 = 2
+
+minimum number of changes to get the number equal
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int n1,n2;
+    scanf("%d %d",&n1,&n2);
+    int cnt=0;
+    while(n1!=n2) {
+        if(n1>n2) {
+            n1/=2;
+        }
+        else {
+            n2/=2;
+        }
+        cnt++;
+    }
+    printf("%d",cnt);
+}
