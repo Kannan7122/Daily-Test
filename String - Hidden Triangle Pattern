@@ -1,0 +1,62 @@
+Program :
+
+
+The program must accept a string S where the length of S is always odd as the input. The program
+must print the desired pattern as shown in the Example Input/Output section.
+Boundary Condition(s):
+3 <= Length of S <= 99
+Input Format:
+The first line contains S.
+Output Format:
+The lines contain the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+chicken
+Output:
+kencchi
+enickch
+nhickec
+chicken
+Example Input/Output 2:
+Input:
+ABCDEFGHI
+Output:
+FGHIEABCD
+GHIDEFABC
+HICDEFGAB
+IBCDEFGHA
+ABCDEFGHI
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    char ch[100];
+    scanf("%s",ch);
+    int x=strlen(ch);
+    int n=(x/2)+1;
+    int g=n,h=n-1,k=n,l=n;
+    for(int i=0;i<n;i++) {
+        for(int j=g;j<x;j++) {
+            printf("%c",ch[j]);
+        }
+        for(int j=h;j<k;j++) {
+            printf("%c",ch[j]);
+        }
+        for(int j=0;j<l-1;j++) {
+            printf("%c",ch[j]);
+        }
+        l--;
+        g++;
+        h--;
+        k++;
+        printf("\n");
+    }
+}
