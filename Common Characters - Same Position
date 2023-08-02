@@ -1,0 +1,75 @@
+Program :
+
+
+The program must accept N string values are of equal length as the input. The program must print
+the common characters at the same position in all the N string values as the output.
+Note:
+- At least one common character at the same position is always present in the N string values.
+Boundary Condition(s):
+2 <= N <= 100
+1 <= Length of S <= 1000
+Input Format:
+The first line contains N.
+The next N lines each contain a string value. 
+Output Format:
+The first line contains the common characters.
+Example Input/Output 1:
+Input:
+3
+next
+best
+test
+Output:
+et
+Explanation:
+Here e and t are the common characters present at the same position in the three string values.
+Hence the output is et 
+Example Input/Output 2:
+Input:
+4
+holding
+waiting
+walking
+selling
+Output:
+ing
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		String[] arr=new String[n];
+		for(int i=0;i<n;i++) {
+		    arr[i]=sc.next();
+		}
+		
+		int x=arr[0].length();
+		int cnt=1,j=0;
+		for(int i=0;;i++) {
+		    char ch1=arr[i].charAt(j);
+		    char ch2=arr[i+1].charAt(j);
+		    if(ch1==ch2) {
+		        cnt++;
+		    }
+		    if(cnt==n) {
+		        System.out.print(ch1);
+		    }
+		    if((i+1)==n-1) {
+		        i=-1;
+		        cnt=1;
+		        j++;
+		    }
+		    if(j==x) {
+		        break;
+		    }
+		}
+	}
+}
