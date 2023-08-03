@@ -1,0 +1,46 @@
+Program :
+
+
+The program must accept a string S containing only alphabets and an integer X as the input. The
+program must toggle the case of the first X alphabets in S and print them in reverse order as the
+output.
+Boundary Condition(s):
+1 <= Length of S <= 100
+1 <= X <= Length of S
+Example Input/Output 1:
+Input:
+ABCDefghaB
+5
+Output:
+Edcba
+Example Input/Output 2:
+Input:
+ANgeLGODdess
+7
+Output:
+oglEGna
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		char[] arr=str.toCharArray();
+		int n=arr.length;
+		int x=sc.nextInt();
+		for(int i=x-1;i>=0;i--) {
+		    if(Character.isUpperCase(arr[i])) {
+		        System.out.print(Character.toLowerCase(arr[i]));
+		    }
+		    else {
+		        System.out.print(Character.toUpperCase(arr[i]));
+		    }
+		}
+	}
+}
