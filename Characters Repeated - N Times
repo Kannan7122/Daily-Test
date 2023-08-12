@@ -1,0 +1,68 @@
+Program :
+
+
+The program must accept a string S and an integer N as the input. The program must print the
+characters occurring at least N times in the string S (in the order of their occurrence) as the output.
+If there is no such character in S then the program must print -1 as the output.
+Boundary Condition(s):
+1 <= Length of S <= 1000
+2 <= N <= 100
+Input Format:
+The first line contains S.
+The second line contains N.
+Output Format:
+The first line contains the characters occurring at least N times in the string S or -1.
+Example Input/Output 1:
+Input:
+waterbottle
+2
+Output:
+te
+Explanation:
+In the string "waterbottle", the character 't' occurs three times and 'e' occurs two times.
+Hence the output is te
+Example Input/Output 2:
+Input:
+celebration
+3
+Output:
+-1
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int x=sc.nextInt();
+		char arr[]=str.toCharArray();
+		int n=str.length();
+		int m=0;
+		for(int i=0;i<n;i++) {
+		    int cnt=1;
+		    if(arr[i]=='&')
+		        continue;
+		    int f=0;
+		    char ch1=arr[i];
+		    for(int j=i+1;j<n;j++) {
+		        char ch2=arr[j];
+		        if(ch1==ch2) {
+		            cnt++;
+		            arr[j]='&';
+		        }
+		    }
+		    if(cnt>=x) {
+		        System.out.print(ch1);
+		        m++;
+		    }
+		}
+		if(m==0)
+		    System.out.println("-1");
+	}
+}
