@@ -1,0 +1,62 @@
+Program :
+
+
+The program must accept a string S and print all the vowels enclosed within square brackets one
+by one as shown in the Example Input/Output section.
+Note: At least one vowel is always present in the string S.
+Boundary Condition(s):
+2 <= Length of S <= 100
+Input Format:
+The first line contains S.
+Output Format:
+The lines (whose count is equal to the number of vowels in S) contain the desired pattern as shown
+in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+skillrack
+Output:
+sk[i]llrack
+sk[i]llr[a]ck
+Example Input/Output 2:
+Input:
+Ethical Hacking
+Output:
+[E]thical Hacking
+[E]th[i]cal Hacking
+[E]th[i]c[a]l Hacking
+[E]th[i]c[a]l H[a]cking
+[E]th[i]c[a]l H[a]ck[i]ng
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+    
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.nextLine();
+		ArrayList<Character> arr=new ArrayList<Character>();
+		int n=str.length();
+		String v="aeiouAEIOU";
+		for(int i=0;i<n;i++) {
+		    char ch=str.charAt(i);
+		    if(v.indexOf(ch)>=0) {
+		        arr.add('[');
+		        arr.add(ch);
+		        arr.add(']');
+		        int l=arr.size();
+		        for(int j=0;j<l;j++) {
+		            System.out.print(arr.get(j));
+		        }
+		        System.out.println(str.substring(i+1,n));
+		    }
+		    else {
+		        arr.add(ch);
+		    }
+		}
+	}
+}
