@@ -1,0 +1,55 @@
+Program :
+
+
+The program must accept N integers as the input. For each integer X among the N integers, the
+program must print the sum of all the integers which are less than X and right to X as the output. If
+there is no such integer on the right side of X then the program must print 0 as the output.
+Boundary Condition(s):
+2 <= N <= 1000
+1 <= Each integer value <= 1000
+Input Format:
+The first line contains N.
+The second line contains N integers separated by a space.
+Output Format:
+The first line contains N integers separated by a space as per the given conditions.
+Example Input/Output 1:
+Input:
+5
+3 5 2 4 1
+Output:
+3 7 1 1 0
+Explanation:
+For the 1st
+ integer, there are two values 2 and 1 which are less than 3 on its right. So their sum
+is 3 which is printed as the output.
+For the 2nd
+ integer, there are three values 2 4 and 1 which are less than 5 on its right. So their sum
+is 7 which is printed as the output.
+For the 3rd
+integer, there is only one value 1 which is less than 2 on its right. Here 1 is printed as
+the output.
+For the 4th
+ integer, there is only one value 1 which is less than 4 on its right. Here 1 is printed as
+the output.
+For the 5th
+ integer, there is no integer on its right. So 0 is printed as the output.
+Example Input/Output 2:
+Input:
+8
+2 8 1 5 4 2 9 3
+Output:
+1 15 0 9 5 0 3 0
+
+
+
+Code :
+
+n = int(input())
+arr = [int(x) for x in input().split()]
+for i in range(n-1):
+    s = 0
+    for j in range(i+1,n):
+        if arr[j] < arr[i] :
+            s += arr[j]
+    print(s, end=" ")
+print("0")   
