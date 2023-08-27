@@ -1,0 +1,74 @@
+Program :
+
+
+In a box, there are A green grapes, B purple grapes and C black grapes. There are three boys B1, B2
+and B3 who are all grape lovers. The boys B1, B2 and B3 should eat at least X, Y and Z grapes
+respectively with the following conditions.
+- B1 eats only green grapes.
+- B2 never eats black grapes.
+- B3 eats any kind of grapes.
+The values of X, Y, Z, A, B and C are passed as input to the program. The program must print YES if
+it is possible to distribute the grapes so that everyone gets their respective number of grapes (at
+least X, Y and Z). Else the program must print NO as the output.
+Boundary Condition(s):
+1 <= X, Y, Z, A, B, C <= 10^5
+Input Format:
+The first line contains X, Y and Z separated by a space.
+The second line contains A, B and C separated by a space
+Output Format:
+The first line contains YES or NO.
+Example Input/Output 1:
+Input:
+1 6 2 
+4 3 3
+Output:
+YES
+Explanation:
+Initially, the box contains G:4 P:3 B:3
+B1 gets 1 grape from the 4 green grapes (as he eats only green grapes).
+Now the box contains G:3 P:3 B:3
+B2 gets 6 grapes from the 3 green grapes and the 3 purple grapes (as he never eats black grapes).
+Now the box contains G:0 P:0 B:3
+B3 gets 2 grapes from the 3 black grapes (as he eats any kind of grapes).
+Now the box contains G:0 P:0 B:1
+Here the grapes in the box are distributed among the three boys as per the given conditions.
+Hence the output is YES
+Example Input/Output 2:
+Input:
+5 1 1
+4 3 2
+Output:
+NO
+
+
+
+
+
+
+Code :
+
+#Your code below
+import sys
+b1, b2, b3 = map(int, input().split())
+g, p, b = map(int, input().split())
+
+if b1<=g :
+    g = g-b1
+else:
+    print("NO")
+    sys.exit()
+
+x = g+p
+if b2<=x :
+    x = x-b2
+else:
+    print("NO")
+    sys.exit()
+
+y = x+b
+if b3<=y:
+    y = y-b3
+    print("YES");
+else:
+    print("NO")
+    
