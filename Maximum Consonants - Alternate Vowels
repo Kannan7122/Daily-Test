@@ -1,0 +1,49 @@
+Program :
+
+
+
+The program must accept a string S as the input. The program must print the maximum number of
+consonants between the alternate vowels in S as the output.
+Note: The string S always contains atleast two vowels.
+Boundary Condition(s):
+3 <= Length of S <= 1000
+Input Format:
+The first line contains S.
+Output Format:
+The first line contains the maximum number of consonants between the alternate vowels.
+Example Input/Output 1:
+Input:
+skillrackCODINGPLATFORM
+Output:
+4
+Explanation:
+The number of consonants between the vowels 'i' and 'a' in the string
+skillrackCODINGPLATFORM is 3.
+The number of consonants between the vowels 'a' and 'O' in the string
+skillrackCODINGPLATFORM is 3.
+The number of consonants between the vowels 'O' and 'I' in the string
+skillrackCODINGPLATFORM is 1.
+The number of consonants between the vowels 'I' and 'A' in the string
+skillrackCODINGPLATFORM is 4.
+The number of consonants between the vowels 'A' and 'O' in the string
+skillrackCODINGPLATFORM is 2.
+Here the maximum number of consonants is 4.
+Hence the output is 4
+Example Input/Output 2:
+Input:
+aaao
+Output:
+0
+
+
+
+
+
+Code :
+
+#Your code below
+s=input().strip()
+vow="aeiouAEIOU"
+n1=[v for v in range(len(s)) if s[v] in vow]
+c=[(abs(n1[v]-n1[v+1])-1) for v in range(len(n1)-1)]
+print(max(c))
