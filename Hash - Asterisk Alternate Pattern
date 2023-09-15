@@ -1,0 +1,51 @@
+Program :
+
+
+The program must accept an integer N as the input. The program must print the desired pattern as
+shown in the Example Input/Output section.
+Boundary condition(s):
+2 <= N <= 100
+Input Format:
+The first line contains N.
+Output Format:
+The first N lines contain the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+4
+Output:
+#*#*
+*#*#
+#*#*
+*#*#
+Example Input/Output 2:
+Input:
+5
+Output:
+#*#*#
+*#*#*
+#*#*#
+*#*#*
+#*#*#
+
+
+
+
+
+
+Code :
+
+#Your code below
+n = int(input())
+for i in range(n):
+    for j in range(n):
+        if i%2==0:
+            if j%2==0 :
+                print("#",end="")
+            else:
+                print("*",end="")
+        else:
+            if j%2==0:
+                print("*",end="")
+            else:
+                print("#",end="")
+    print()
