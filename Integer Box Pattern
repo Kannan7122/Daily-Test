@@ -1,0 +1,52 @@
+Program :
+
+
+The program must accept an integer N as the input. The program must print the desired pattern as
+shown in the Example Input/Output section.
+Boundary Condition(s):
+1 <= N <= 10^17
+Input Format:
+The first line contains N.
+Output Format:
+The first three lines contain the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+45
+Output:
++--+
+|45|
++--+
+Example Input/Output 2:
+Input:
+12045
+Output:
++-----+
+|12045|
++-----+
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        String s = "";
+        s += '+';
+        s += str.replaceAll("[0-9]","-");
+        s += '+';
+        String ss = "";
+        ss += '|';
+        ss += str;
+        ss += '|';
+        System.out.println(s);
+        System.out.println(ss);
+        System.out.println(s);
+	}
+}
