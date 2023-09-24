@@ -1,0 +1,88 @@
+Program :
+
+
+
+The program must accept two string values S1 and S2 of equal length as the input. The program must
+print YES if both the string values have a vowel or a consonant at the same position. Else the program
+must print NO as the output.
+Boundary Condition(s):
+1 <= Length of S1, S2 <= 1000
+Input Format:
+The first line contains S1.
+The second line contains S2.
+Output Format:
+The first line contains YES or NO.
+Example Input/Output 1:
+Input:
+mcabcdeng
+SKILLRACK
+Output:
+YES
+Explanation:
+Here both the string values have a vowel or a consonant at the same position.
+m S - consonants
+c K - consonants
+a I - vowels
+b L - consonants
+c L - consonants
+d R - consonants
+e A - vowels
+n C - consonants
+g K - consonants
+Hence the output is YES
+Example Input/Output 2:
+Input:
+yogaa
+power
+Output:
+NO
+
+
+
+
+
+
+
+
+Code :
+
+i
+mport java.util.*;
+public class Hello {
+    
+    public static int isvowel(char ch) {
+        if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U') {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    }
+    
+    
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s1 = sc.next();
+		String s2 = sc.next();
+		int cnt=0;
+		for(int i=0;i<s1.length();i++) {
+		    char ch1 = s1.charAt(i);
+		    char ch2 = s2.charAt(i);
+		    if(isvowel(ch1)==1 && isvowel(ch2)==1) {
+		        cnt++;
+		    }
+		    else if(isvowel(ch1)==-1 && isvowel(ch2)==-1) {
+		        cnt++;
+		    }
+		    else{
+		        continue;
+		    }
+		}
+		if(cnt==s1.length()) {
+		    System.out.println("YES");
+		}
+		else {
+		    System.out.println("NO");
+		}
+	}
+}
